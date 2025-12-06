@@ -37,7 +37,7 @@
   <div class="container">
     <header>
       <h1>Base de Datos Noticias (2010-2025)</h1>
-      <p class="small">Carga datos desde Google Sheets, añade noticias manualmente y visualiza la distribución por año (2010–2025).</p>
+      <p class="small">Inundaciones en Cartago, base de datos de noticias y visualización de distribución por año (2010–2025).</p>
     </header>
 
     <div class="grid">

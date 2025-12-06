@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -144,13 +144,12 @@
   function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){ console.warn('No se pudo guardar', e); } }
 
   // deterministic pastel color for a string (so same year => same color)
-  function generateDeterministicColor(seedStr){
-    // simple hash
-    let h = 0;
-    for(let i=0;i<seedStr.length;i++){ h = (h<<5)-h + seedStr.charCodeAt(i); h |= 0; }
-    const hue = Math.abs(h) % 360;
-    return hslToHex(hue, 60, 70);
-  }
+  function generateDeterministicColor(year){
+  const baseHue = 15;     // hue inicial
+  const step = 23;        // separación entre colores (garantiza que no se repitan)
+  const hue = (baseHue + (Number(year) - 2010) * step) % 360;
+  return hslToHex(hue, 65, 65);  // pastel bonito
+}
   function hslToHex(h,s,l){
     s/=100; l/=100;
     const k = n => (n + h/30) % 12;
